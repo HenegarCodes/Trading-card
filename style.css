@@ -118,11 +118,12 @@ background-image: linear-gradient(to top, #dfe9f3 0%, white 100%);
 }
 
 .user-info {
-    color: background-image: linear-gradient(to right, #243949 0%, #517fa4 100%);ss
+    color: black;
+    background-image: linear-gradient(to right, #243949 0%, #517fa4 100%);
     margin-left: 10rem;
 }
 
-.
+
  h2 {
     margin-top: 10;
 }
