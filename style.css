@@ -1,81 +1,196 @@
-img {
-    width: 200px;
-}
-
-li {
-    list-style: none;
-}
-
+/* General Styling */
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Roboto Condensed", sans-serif; /* A classic, sporty font */
 }
 
 body {
-    background-color: #eff3ff;
+  background-color: #f0f0f0; /* Lighter background for a cleaner feel */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/* Wrapper for the animated/heading text */
+.wrapper {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.dynamic-txts {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.dynamic-txts li {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #2e3037; /* Darker text for readability */
+  margin-bottom: 8px;
+  background: none; /* No gradient */
+  -webkit-background-clip: unset;
+  -webkit-text-fill-color: unset;
+  text-shadow: 1px 1px 0 #fff, 2px 2px 0 #e0e0e0; /* Subtle white/gray shadow */
+}
+
+/* Search Form Styling */
+#form {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+#usernameInput {
+  width: 300px;
+  padding: 12px 18px;
+  font-size: 1.1rem;
+  border: 2px solid #ccc; /* Simple gray border */
+  border-radius: 8px; /* Slightly less rounded */
+  outline: none;
+  transition: all 0.3s ease;
+  background-color: #fff;
+  color: #333;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+#usernameInput:focus {
+  border-color: #007bff; /* Standard blue focus border */
+  box-shadow: 0 0 8px rgba(0,123,255,0.6);
 }
 
 
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
-  }
-  body {
-    background-color: rgba(202, 191, 67, 0.634);
-  }
-  .container {
-    width: 350px;
-    position: absolute;
-    transform: translate(-50%, -50%);
-    top: 50%;
-    left: 50%;
-  }
-  #main {
-    position: relative;
-    width: 100%;
-    padding: 20px;
-    background: linear-gradient(135deg, #fffae0, #fbe278);
-    border: 5px solid #ffcc00;
-    border-radius: 16px;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.25), 0 0 0 4px #fff inset;
-    font-family: 'Poppins', sans-serif;
-  }
-  
-  #main img {
-    display: block;
-    width: 200px;
-    height: 200px;
-    object-fit: cover;
-    border: 3px solid #444;
-    border-radius: 10px;
-    background-color: #fff;
-    margin: 0 auto 10px auto;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-  }
-  
- 
-  .user-name {
-    text-align: center;
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #2b2b2b;
-    text-shadow: 1px 1px #fff, 2px 2px #ccc;
-    margin-bottom: 10px;
-  }
-  
+/* Trading Card Styling */
+#main {
+  display: none; /* Initially hidden */
+  position: relative;
+  width: 250px; /* Standard baseball card width: ~2.5 inches (2.5 * 96px/inch) */
+  height: 350px; /* Standard baseball card height: ~3.5 inches (3.5 * 96px/inch) */
+  padding: 15px; /* Less padding to emphasize the full image */
+  background-color: #ffffff; /* Clean white background */
+  border: 3px solid #000000; /* Classic black border */
+  border-radius: 6px; /* Slightly rounded corners */
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2); /* Simple shadow */
+  font-family: 'Roboto Condensed', sans-serif;
+  color: #333;
+  text-align: center;
+  overflow: hidden; /* Important for containing the image and text nicely */
+}
 
- 
+#main::before {
+  content: ''; /* Remove the Pokémon-style outer border */
+  display: none;
+}
 
-  .stats {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    text-align: center;
-  }
-  .stats p {
-    color: #404060;
-  }
+#main img {
+  display: block;
+  width: 100%; /* Image takes full width of the card's content area */
+  height: 60%; /* Adjust height to give space for name and stats below */
+  object-fit: cover;
+  border: none; /* No individual border on the image */
+  border-radius: 0; /* Sharp corners for the image */
+  background-color: transparent;
+  margin: 0; /* No margin, image should fill top section */
+  box-shadow: none; /* No shadow on the image itself */
+  position: absolute; /* Position the image for precise control */
+  top: 0;
+  left: 0;
+  /* Ensure the image covers the top portion without extra borders */
+  border-bottom: 2px solid #ccc; /* A subtle line separating image and text */
+}
+
+.user-name {
+  position: absolute; /* Position name over the image or just below */
+  bottom: 35%; /* Adjust as needed to place it correctly */
+  left: 0;
+  width: 100%;
+  text-align: center;
+  font-size: 1.4rem; /* Prominent name */
+  font-weight: bold;
+  color: #fff; /* White text on top of the image */
+  background-color: rgba(0,0,0,0.5); /* Semi-transparent black band for readability */
+  padding: 5px 0;
+  text-shadow: 1px 1px #000; /* Simple shadow for contrast */
+  margin-bottom: 0; /* Reset margin */
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.stats {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #f7f7f7; /* Light background for stats section */
+  border-top: 1px solid #ddd; /* Separator from image/name */
+  padding: 10px 0; /* Padding for stats */
+  margin-bottom: 0; /* Reset margin */
+  box-shadow: none;
+}
+
+.stats div {
+  flex: 1;
+  padding: 0 5px;
+  border-right: 1px solid #eee; /* Light gray separators */
+}
+
+.stats div:last-child {
+  border-right: none;
+}
+
+.stats h3 {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #007bff; /* Example: blue for numbers */
+  margin: 0;
+  text-shadow: none;
+}
+
+.stats p {
+  color: #666;
+  font-size: 0.8rem;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.bio-text {
+  /* For a baseball card, the bio is usually on the back.
+     If you want to keep it on the front, you'll need to
+     adjust layout considerably. For now, let's make it
+     less prominent or consider it for a 'back of card' view. */
+  display: none; /* Hide for a standard baseball card front */
+  /* If you MUST display it, you'd place it within the stats area
+     or dedicate a section above the stats. */
+  /* For example, if you wanted a "team" or "position" text: */
+  /* position: absolute;
+  bottom: 25%;
+  left: 0;
+  width: 100%;
+  font-size: 0.85rem;
+  color: #555;
+  background-color: rgba(255,255,255,0.7);
+  padding: 8px;
+  border-radius: 0;
+  border: none;
+  box-shadow: none; */
+}
+
+
+/* Container for centering the card */
+.container {
+  width: auto;
+  position: static;
+  transform: none;
+  top: auto;
+  left: auto;
+  display: flex;
+  justify-content: center;
+  margin-top: 0;
+}
