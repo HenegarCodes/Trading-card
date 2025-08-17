@@ -161,25 +161,9 @@ body {
 }
 
 .bio-text {
-  /* For a baseball card, the bio is usually on the back.
-     If you want to keep it on the front, you'll need to
-     adjust layout considerably. For now, let's make it
-     less prominent or consider it for a 'back of card' view. */
+
   display: none; /* Hide for a standard baseball card front */
-  /* If you MUST display it, you'd place it within the stats area
-     or dedicate a section above the stats. */
-  /* For example, if you wanted a "team" or "position" text: */
-  /* position: absolute;
-  bottom: 25%;
-  left: 0;
-  width: 100%;
-  font-size: 0.85rem;
-  color: #555;
-  background-color: rgba(255,255,255,0.7);
-  padding: 8px;
-  border-radius: 0;
-  border: none;
-  box-shadow: none; */
+
 }
 
 
